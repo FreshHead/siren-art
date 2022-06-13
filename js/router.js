@@ -22,6 +22,17 @@ const handleLocation = async () => {
     const route = routes[hash] || routes[404];
     const html = await fetch(route).then((data) => data.text());
     document.getElementById("main-page").innerHTML = html;
+    // TODO: Сначала сделай в перемежку, а потом подгруппы если что. То есть покидай всю аэрографию
+    if (hash === "#aerography") {
+        const grid = document.getElementById("grid");
+        const imagePaths = ["../img/автобус Рубин.jpeg", "../img/машина сакура.jpeg"];
+        imagePaths.forEach(imagePath => {
+            const card = document.createElement("div");
+            card.classList.add("card")
+            grid.appendChild(card);
+            card.style.backgroundImage = `url('${imagePath}')`;
+        });
+    }
 };
 
 window.onpopstate = handleLocation;

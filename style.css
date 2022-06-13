@@ -29,7 +29,7 @@
      background-size: cover;
  }
 
- .grid {
+ #grid {
      display: grid;
      -ms-grid-columns: 1fr 1fr 1fr;
      grid-template-columns: 1fr 1fr 1fr;
@@ -43,12 +43,13 @@
  .card {
      width: 500px;
      height: 500px;
+     background-size: cover;
  }
 
- /*👉 #main-auto {
-     background-image: url('');
- }👈*/
+ #main-auto {
+     background-image: url('../img/машина сакура.jpeg');
+ }
 
- /*👉 #main-bus {
+ #main-bus {
      background-image: url('./img/автобус\ Рубин.jpeg');
- }👈*/
+ }
