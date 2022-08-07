@@ -1,3 +1,8 @@
+ body.modal-open {
+     height: 100vh;
+     overflow-y: hidden;
+ }
+
  .main-header {
      background-color: #000;
      padding: .5rem 0 .5rem 0;
@@ -13,11 +18,16 @@
      margin-right: 2rem;
 
      color: #fff;
-     text-transform: uppercase;
+     /* text-transform: uppercase; */
      letter-spacing: 2.1px;
      text-decoration: none;
      font-weight: bold;
-     font-size: 13px;
+     font-size: 16px;
+ }
+
+ .menu>li a.logo {
+     font-size: 20px;
+     text-transform: uppercase;
  }
 
  .about {
@@ -30,20 +40,43 @@
  }
 
  #grid {
+     width: 1240px;
+     margin: 0 auto;
      display: grid;
      -ms-grid-columns: 1fr 1fr 1fr;
      grid-template-columns: 1fr 1fr 1fr;
      grid-column-gap: 20px;
+     grid-row-gap: 20px;
      margin-top: 30px;
      margin-bottom: 40px;
      padding: 0;
  }
 
-
  .card {
-     width: 500px;
-     height: 500px;
+     width: 400px;
+     height: 400px;
      background-size: cover;
+ }
+
+ .fullscreen-card {
+     position: absolute;
+     top: 100px;
+     overflow-y: hidden;
+
+     width: 1000px;
+     height: 750px;
+     background: no-repeat;
+     background-color: rgba(43, 43, 43, 0.864);
+     background-size: contain;
+     background-position: center;
+ }
+
+ .close-btn {
+     position: absolute;
+     background-color: black;
+     right: 1rem;
+     width: 50px;
+     height: 50px;
  }
 
  #main-auto {

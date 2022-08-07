@@ -23,14 +23,38 @@ const handleLocation = async () => {
     const html = await fetch(route).then((data) => data.text());
     document.getElementById("main-page").innerHTML = html;
     // TODO: Сначала сделай в перемежку, а потом подгруппы если что. То есть покидай всю аэрографию
-    if (hash === "#aerography") {
+    const folderName = hash.slice(1);
+    if (hash === "#aerography" || hash === "#walls" || hash === "#sculptures") {
         const grid = document.getElementById("grid");
-        const imagePaths = ["../img/автобус Рубин.jpeg", "../img/машина сакура.jpeg"];
-        imagePaths.forEach(imagePath => {
+        const imageNames = {
+            aerography: ["bus_rubin.jpeg", "car_sakura.jpeg", "car_lion.jpg", "truck_garbage.jpeg"],
+            walls: ["jack_sparrow.jpeg", "tank.jpeg", "grece_park.jpeg", "grece.jpg", "roof_grece.jpg", "harley_davidson.jpeg", "gate.jpg"],
+            sculptures: ["riverick.jpeg", "bars.jpg", "jesus.jpeg", "lady.jpeg", "matryoshka.jpeg"]
+        };
+
+        const fullscreenCard = document.createElement("dialog");
+        fullscreenCard.classList.add("fullscreen-card");
+
+        const closeBtn = document.createElement("div");
+        closeBtn.classList.add("close-btn");
+        closeBtn.addEventListener("click", () => {
+            fullscreenCard.open = false;
+        });
+        fullscreenCard.append(closeBtn);
+
+        imageNames[folderName].forEach(imageName => {
             const card = document.createElement("div");
-            card.classList.add("card")
+            card.classList.add("card");
+
+            card.addEventListener("click", () => {
+                fullscreenCard.open = true;
+                fullscreenCard.style.backgroundImage = card.style.backgroundImage;
+                // fullscreenCard.style.background = "#18b5a4," + card.style.backgroundImage;
+                document.body.classList.add("modal-open");
+                document.getElementById("main-page").append(fullscreenCard);
+            })
             grid.appendChild(card);
-            card.style.backgroundImage = `url('${imagePath}')`;
+            card.style.backgroundImage = `url('../img/${folderName}/${imageName}')`;
         });
     }
 };
