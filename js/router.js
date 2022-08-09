@@ -49,7 +49,6 @@ const handleLocation = async () => {
             card.addEventListener("click", () => {
                 fullscreenCard.open = true;
                 fullscreenCard.style.backgroundImage = card.style.backgroundImage;
-                // fullscreenCard.style.background = "#18b5a4," + card.style.backgroundImage;
                 document.body.classList.add("modal-open");
                 document.getElementById("main-page").append(fullscreenCard);
             })

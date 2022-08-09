@@ -64,23 +64,58 @@
 
  .fullscreen-card {
      position: absolute;
-     top: 100px;
+     top: 70px;
      overflow-y: hidden;
 
-     width: 1000px;
-     height: 750px;
+     width: auto;
+     height: 100%;
      background: no-repeat;
      background-color: rgba(43, 43, 43, 0.864);
      background-size: contain;
-     background-position: center;
+     background-position-x: center;
  }
 
  .close-btn {
      position: absolute;
-     background-color: black;
-     right: 1rem;
+
+     top: 2rem;
+     right: 3rem;
+
      width: 50px;
      height: 50px;
+
+     background-color: rgba(43, 43, 43, 0.864);
+     cursor: pointer;
+ }
+
+ .close-btn::before {
+     content: "";
+     display: block;
+
+     position: relative;
+     top: 22px;
+     transform: rotate(-45deg);
+
+     width: 50px;
+     height: 5px;
+
+     background-color: white;
+     border-radius: 5px;
+ }
+
+ .close-btn::after {
+     content: "";
+     display: block;
+
+     position: relative;
+     top: 17px;
+     transform: rotate(45deg);
+
+     width: 50px;
+     height: 5px;
+
+     background-color: white;
+     border-radius: 5px;
  }
 
  #main-auto {
@@ -114,4 +149,8 @@
  footer div .contacts {
      display: flex;
      flex-direction: column;
+ }
+
+ a {
+     color: white;
  }
