@@ -35,10 +35,14 @@ const handleLocation = async () => {
         const fullscreenCard = document.createElement("dialog");
         fullscreenCard.classList.add("fullscreen-card");
 
+        const leftArrow = createArrow();
+        fullscreenCard.append(leftArrow);
+
         const closeBtn = document.createElement("div");
         closeBtn.classList.add("close-btn");
         closeBtn.addEventListener("click", () => {
             fullscreenCard.open = false;
+            document.body.classList.remove("modal-open");
         });
         fullscreenCard.append(closeBtn);
 
@@ -57,6 +61,12 @@ const handleLocation = async () => {
         });
     }
 };
+
+const createArrow = () => {
+    const arrow = document.createElement("div");
+    arrow.classList.add("fullscreen-arrow")
+    return arrow;
+}
 
 window.onpopstate = handleLocation;
 window.route = route;
