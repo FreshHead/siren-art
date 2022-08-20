@@ -32,7 +32,7 @@ const handleLocation = async () => {
             sculptures: ["riverick.jpeg", "bars.jpg", "jesus.jpeg", "lady.jpeg", "matryoshka.jpeg"]
         };
 
-        const fullscreenCard = document.createElement("dialog");
+        const fullscreenCard = document.getElementById("fullscreenCard");
         fullscreenCard.classList.add("fullscreen-card");
 
         const leftArrow = createArrow();
@@ -41,7 +41,7 @@ const handleLocation = async () => {
         const closeBtn = document.createElement("div");
         closeBtn.classList.add("close-btn");
         closeBtn.addEventListener("click", () => {
-            fullscreenCard.open = false;
+            fullscreenCard.close();
             document.body.classList.remove("modal-open");
         });
         fullscreenCard.append(closeBtn);
@@ -51,10 +51,9 @@ const handleLocation = async () => {
             card.classList.add("card");
 
             card.addEventListener("click", () => {
-                fullscreenCard.open = true;
+                fullscreenCard.showModal();
                 fullscreenCard.style.backgroundImage = card.style.backgroundImage;
                 document.body.classList.add("modal-open");
-                document.getElementById("main-page").append(fullscreenCard);
             })
             grid.appendChild(card);
             card.style.backgroundImage = `url('../img/${folderName}/${imageName}')`;

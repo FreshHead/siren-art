@@ -1,5 +1,8 @@
  body {
      margin: 0;
+     /* background-color: rgb(212, 164, 231); */
+     /* background-image: url('../img/bg.jpg'); */
+     background-size: cover;
  }
 
  body.modal-open {
@@ -62,11 +65,8 @@
      background-size: cover;
  }
 
- .fullscreen-card {
-     position: absolute;
-     top: 70px;
-     overflow-y: hidden;
 
+ .fullscreen-card {
      width: auto;
      height: 100%;
      background: no-repeat;
