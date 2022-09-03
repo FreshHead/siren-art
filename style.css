@@ -79,7 +79,7 @@
  #fullscreenCard .arrow {
      position: absolute;
 
-     top: 35%;
+     top: 50%;
 
      width: 50px;
      height: 50px;
@@ -88,12 +88,47 @@
      cursor: pointer;
  }
 
- #leftArrow {
+ #fullscreenCard .arrow::before {
+     content: "";
+     display: block;
+
+     position: relative;
+     top: 15px;
      left: 10px;
+
+     transform: rotate(-45deg);
+
+     width: 25px;
+     height: 5px;
+
+     background-color: white;
+     border-radius: 5px;
+ }
+
+ #fullscreenCard .arrow::after {
+     content: "";
+     display: block;
+
+     position: relative;
+     top: 25px;
+     left: 10px;
+
+     transform: rotate(45deg);
+
+     width: 25px;
+     height: 5px;
+
+     background-color: white;
+     border-radius: 5px;
+ }
+
+ #leftArrow {
+     left: 60px;
  }
 
  #rightArrow {
-     right: 10px;
+     right: 60px;
+     transform: rotate(180deg);
  }
 
  #closeBtn {
