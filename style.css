@@ -66,17 +66,19 @@
  }
 
 
- .fullscreen-card {
+ #fullscreenCard {
      width: auto;
      height: 100%;
      background: no-repeat;
      background-color: rgba(43, 43, 43, 0.864);
+
      background-size: contain;
-     background-position-x: center;
+     background-position: center;
  }
 
- .fullscreen-arrow {
+ #fullscreenCard .arrow {
      position: absolute;
+
      top: 35%;
 
      width: 50px;
@@ -86,11 +88,15 @@
      cursor: pointer;
  }
 
- .fullscreen-arrow-left {}
+ #leftArrow {
+     left: 10px;
+ }
 
- .fullscreen-arrow-right {}
+ #rightArrow {
+     right: 10px;
+ }
 
- .close-btn {
+ #closeBtn {
      position: absolute;
 
      top: 2rem;
@@ -103,7 +109,7 @@
      cursor: pointer;
  }
 
- .close-btn::before {
+ #closeBtn::before {
      content: "";
      display: block;
 
@@ -118,7 +124,7 @@
      border-radius: 5px;
  }
 
- .close-btn::after {
+ #closeBtn::after {
      content: "";
      display: block;
 
@@ -142,9 +148,6 @@
  }
 
  footer {
-     /* position: sticky; */
-     bottom: 0;
-
      display: flex;
      justify-content: space-between;
      align-items: center;

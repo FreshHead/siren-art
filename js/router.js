@@ -17,6 +17,23 @@ const routes = {
     "#sculptures": "pages/sculptures.html"
 };
 
+const getImageUrl = (folderName, imageName) => {
+    return `url('../img/${folderName}/${imageName}')`;
+}
+
+const changeImage = (fullscreenCard, imageNames, folderName, isForward) => {
+    let imageIndex = Number(fullscreenCard.getAttribute("imageIndex"));
+    const lastImage = imageNames[folderName].length - 1;
+    if (isForward) {
+        imageIndex = imageIndex >= lastImage ? 0 : imageIndex + 1;
+    } else {
+        imageIndex = imageIndex <= 0 ? lastImage : imageIndex - 1;
+    }
+    const imageName = imageNames[folderName][imageIndex];
+    fullscreenCard.setAttribute("imageIndex", imageIndex);
+    fullscreenCard.style.backgroundImage = getImageUrl(folderName, imageName);
+}
+// TODO: Вынеси из handleLocation инициализацию.
 const handleLocation = async () => {
     const hash = window.location.hash;
     const route = routes[hash] || routes[404];
@@ -32,40 +49,40 @@ const handleLocation = async () => {
             sculptures: ["riverick.jpeg", "bars.jpg", "jesus.jpeg", "lady.jpeg", "matryoshka.jpeg"]
         };
 
-        const fullscreenCard = document.getElementById("fullscreenCard");
-        fullscreenCard.classList.add("fullscreen-card");
-
-        const leftArrow = createArrow();
-        fullscreenCard.append(leftArrow);
-
-        const closeBtn = document.createElement("div");
-        closeBtn.classList.add("close-btn");
-        closeBtn.addEventListener("click", () => {
-            fullscreenCard.close();
-            document.body.classList.remove("modal-open");
-        });
-        fullscreenCard.append(closeBtn);
-
-        imageNames[folderName].forEach(imageName => {
+        // Создаём карточки для галереи.
+        imageNames[folderName].forEach((imageName, idx) => {
             const card = document.createElement("div");
             card.classList.add("card");
 
             card.addEventListener("click", () => {
+                fullscreenCard.setAttribute("imageIndex", idx);
                 fullscreenCard.showModal();
                 fullscreenCard.style.backgroundImage = card.style.backgroundImage;
                 document.body.classList.add("modal-open");
             })
             grid.appendChild(card);
-            card.style.backgroundImage = `url('../img/${folderName}/${imageName}')`;
+            card.style.backgroundImage = getImageUrl(folderName, imageName);
+        });
+
+        // Режим с ратягиванием картинки на весь экран.
+        const fullscreenCard = document.getElementById("fullscreenCard");
+        fullscreenCard.classList.add("fullscreen-card");
+
+        const closeBtn = document.getElementById("closeBtn");
+        closeBtn.addEventListener("click", () => {
+            fullscreenCard.close();
+            document.body.classList.remove("modal-open");
+        });
+
+        document.getElementById("leftArrow").addEventListener("click", () => {
+            changeImage(fullscreenCard, imageNames, folderName, false);
+        });
+
+        document.getElementById("rightArrow").addEventListener("click", (event) => {
+            changeImage(fullscreenCard, imageNames, folderName, true);
         });
     }
 };
-
-const createArrow = () => {
-    const arrow = document.createElement("div");
-    arrow.classList.add("fullscreen-arrow")
-    return arrow;
-}
 
 window.onpopstate = handleLocation;
 window.route = route;
