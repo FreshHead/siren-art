@@ -11,38 +11,43 @@ const imageNames = {
     sculptures: ["riverick.jpeg", "bars.jpg", "jesus.jpeg", "lady.jpeg", "matryoshka.jpeg"]
 };
 
-document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll("header a").forEach(btn => btn.addEventListener("click", route));
+const DOMContentLoadedPromise = new Promise((resolve) => {
+    document.addEventListener("DOMContentLoaded", () => {
 
-    const fullscreenCard = document.getElementById("fullscreenCard");
-    const closeBtn = document.getElementById("closeBtn");
-    closeBtn.addEventListener("click", () => {
-        fullscreenCard.close();
-        document.body.classList.remove("modal-open");
-    });
+        document.querySelectorAll("header a").forEach(btn => btn.addEventListener("click", route));
 
-    const changeImage = (isForward) => {
-        let imageIndex = Number(fullscreenCard.getAttribute("imageIndex"));
-        const folderName = fullscreenCard.getAttribute("folderName");
-        const lastImage = imageNames[folderName].length - 1;
-        if (isForward) {
-            imageIndex = imageIndex >= lastImage ? 0 : imageIndex + 1;
-        } else {
-            imageIndex = imageIndex <= 0 ? lastImage : imageIndex - 1;
+        const fullscreenCard = document.getElementById("fullscreenCard");
+        const closeBtn = document.getElementById("closeBtn");
+        closeBtn.addEventListener("click", () => {
+            fullscreenCard.close();
+            document.body.classList.remove("modal-open");
+        });
+
+        const changeImage = (isForward) => {
+            let imageIndex = Number(fullscreenCard.getAttribute("imageIndex"));
+            const folderName = fullscreenCard.getAttribute("folderName");
+            const lastImage = imageNames[folderName].length - 1;
+            if (isForward) {
+                imageIndex = imageIndex >= lastImage ? 0 : imageIndex + 1;
+            } else {
+                imageIndex = imageIndex <= 0 ? lastImage : imageIndex - 1;
+            }
+            const imageName = imageNames[folderName][imageIndex];
+            fullscreenCard.setAttribute("imageIndex", imageIndex);
+            fullscreenCard.style.backgroundImage = getImageUrl(folderName, imageName);
         }
-        const imageName = imageNames[folderName][imageIndex];
-        fullscreenCard.setAttribute("imageIndex", imageIndex);
-        fullscreenCard.style.backgroundImage = getImageUrl(folderName, imageName);
-    }
 
-    document.getElementById("leftArrow").addEventListener("click", () => {
-        changeImage(false);
-    });
+        document.getElementById("leftArrow").addEventListener("click", () => {
+            changeImage(false);
+        });
 
-    document.getElementById("rightArrow").addEventListener("click", (event) => {
-        changeImage(true);
+        document.getElementById("rightArrow").addEventListener("click", (event) => {
+            changeImage(true);
+        });
+        resolve();
     });
 });
+
 
 const routes = {
     404: "pages/main.html",
@@ -57,13 +62,28 @@ const getImageUrl = (folderName, imageName) => {
 }
 
 const handleLocation = async () => {
-    // TODO: Выдели цветом выбранный раздел, чтобы было понятнее.
+    await DOMContentLoadedPromise;
     const hash = window.location.hash;
+
+
+    // TODO: Выдяем цветом выбранный раздел, чтобы было понятнее.
+    const categories = document.getElementsByClassName("category");
+    for (let i = 0; i < categories.length; i++) {
+        categories.item(i).classList.remove("selectedCategory");
+    }
+    categoryMatch = hash.match(/#(\w*)/);
+    if (categoryMatch) {
+        const hashWithoutHashtag = categoryMatch[1];
+        const selectedCategory = document.getElementById(hashWithoutHashtag + "Link");
+        if (selectedCategory) {
+            selectedCategory.classList.add("selectedCategory");
+        }
+    }
+
     const route = routes[hash] || routes[404];
     const html = await fetch(route).then((data) => data.text());
     document.getElementById("main-page").innerHTML = html;
 
-    // TODO: Сначала сделай вперемежку, а потом подгруппы если что. То есть покидай всю аэрографию
     const folderName = hash.slice(1);
     if (hash === "#aerography" || hash === "#walls" || hash === "#sculptures") {
         const grid = document.getElementById("grid");

@@ -1,8 +1,24 @@
  body {
-     margin: 0;
+
      /* background-color: rgb(212, 164, 231); */
      /* background-image: url('../img/bg.jpg'); */
-     background-size: cover;
+     background-color: rgb(240, 240, 240);
+
+     overflow-y: scroll;
+
+ }
+
+ .container {
+     max-width: 1272px;
+     min-height: 95vh;
+
+     margin: 0 auto;
+     box-shadow: 0 0 0.25rem 0 rgb(0 0 0 / 15%), inset 0 -0.0625rem 0 0 #d9d9d9;
+     background-color: white;
+ }
+
+ p {
+     font-size: 20px;
  }
 
  body.modal-open {
@@ -11,8 +27,19 @@
  }
 
  .main-header {
+     width: 1272px;
+     position: fixed;
+     top: 0;
+     z-index: 1;
      background-color: black;
-     padding: .5rem 0 .5rem 0;
+
+     border-bottom: solid white;
+ }
+
+ #main-page {
+     position: relative;
+     top: 50px;
+     padding: 16px;
  }
 
  .menu {
@@ -25,11 +52,14 @@
      margin-right: 2rem;
 
      color: #fff;
-     /* text-transform: uppercase; */
      letter-spacing: 2.1px;
      text-decoration: none;
      font-weight: bold;
      font-size: 16px;
+ }
+
+ .menu>li a.selectedCategory {
+     text-decoration: underline;
  }
 
  .menu>li a.logo {
@@ -37,11 +67,11 @@
      text-transform: uppercase;
  }
 
+
  .about {
      max-width: 840px;
-     height: 1000px;
      margin: 0 auto;
-     background-image: url('./img/about.jpg');
+     /* background-image: url('./img/about.jpg'); */
      background-repeat: no-repeat;
      background-size: cover;
  }
@@ -54,9 +84,7 @@
      grid-template-columns: 1fr 1fr 1fr;
      grid-column-gap: 20px;
      grid-row-gap: 20px;
-     margin-top: 30px;
-     margin-bottom: 40px;
-     padding: 0;
+
  }
 
  .card {
@@ -183,6 +211,11 @@
  }
 
  footer {
+     position: fixed;
+     bottom: 0;
+
+     max-width: 1272px;
+
      display: flex;
      justify-content: space-between;
      align-items: center;
@@ -192,6 +225,8 @@
 
      background-color: black;
      color: white;
+
+     border-top: solid white;
  }
 
  footer div {
