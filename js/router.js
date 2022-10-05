@@ -6,9 +6,58 @@ const route = (event) => {
 };
 
 const imageNames = {
-    aerography: ["bus_rubin.jpeg", "car_sakura.jpeg", "car_lion.jpg", "truck_garbage.jpeg"],
-    walls: ["jack_sparrow.jpeg", "tank.jpeg", "grece_park.jpeg", "grece.jpg", "roof_grece.jpg", "harley_davidson.jpeg", "gate.jpg"],
-    sculptures: ["riverick.jpeg", "bars.jpg", "jesus.jpeg", "lady.jpeg", "matryoshka.jpeg"]
+    aerography: [{
+        name: "Рубин",
+        images: ["bus_rubin.jpeg"]
+    }, {
+        name: "Ока самурая",
+        images: ["car_sakura.jpeg"]
+    }, {
+        name: "Капот со львом",
+        images: ["car_lion.jpg"]
+    }, {
+        name: "Чистый город",
+        images: ["truck_garbage.jpeg"]
+    }],
+    walls: [{
+            name: "Аквапарк",
+            images: ["jack_sparrow.jpeg"]
+        }, {
+            name: "Офис Аксолит",
+            images: ["tank.jpeg"],
+        }, {
+            name: "Греция в доме",
+            images: ["grece_park.jpeg", "grece.jpg", "roof_grece.jpg"]
+        },
+        {
+            name: "Магазин Харлей",
+            images: ["harley_davids on.jpeg"]
+        },
+        {
+            name: "Забор частного дома",
+            images: ["gate.jpg", "gate2.jpg"]
+        },
+        {
+            name: "Забор берёзы",
+            images: ["birch_fence.jpg"]
+        }
+    ],
+    sculptures: [{
+        name: "Ривьерик",
+        images: ["riverick.jpeg"]
+    }, {
+        name: "Барс",
+        images: ["bars.jpg"]
+    }, {
+        name: "Иисус",
+        images: ["jesus.jpeg"]
+    }, {
+        name: "Богиня в кафе",
+        images: ["lady.jpeg"]
+    }, {
+        name: "Матрёшка Глэм",
+        images: ["matryoshka.jpeg"]
+    }]
 };
 
 const DOMContentLoadedPromise = new Promise((resolve) => {
@@ -24,17 +73,17 @@ const DOMContentLoadedPromise = new Promise((resolve) => {
         });
 
         const changeImage = (isForward) => {
-            let imageIndex = Number(fullscreenCard.getAttribute("imageIndex"));
-            const folderName = fullscreenCard.getAttribute("folderName");
-            const lastImage = imageNames[folderName].length - 1;
+            const categoryName = fullscreenCard.getAttribute("categoryName");
+            let projectIndex = Number(fullscreenCard.getAttribute("projectIndex"));
+
+            const lastProjectIndex = imageNames[categoryName].length - 1;
             if (isForward) {
-                imageIndex = imageIndex >= lastImage ? 0 : imageIndex + 1;
+                projectIndex = projectIndex >= lastProjectIndex ? 0 : projectIndex + 1;
             } else {
-                imageIndex = imageIndex <= 0 ? lastImage : imageIndex - 1;
+                projectIndex = projectIndex <= 0 ? lastProjectIndex : projectIndex - 1;
             }
-            const imageName = imageNames[folderName][imageIndex];
-            fullscreenCard.setAttribute("imageIndex", imageIndex);
-            fullscreenCard.style.backgroundImage = getImageUrl(folderName, imageName);
+            fullscreenCard.setAttribute("projectIndex", projectIndex);
+            fullscreenCard.style.backgroundImage = getImageUrl(categoryName, imageNames[categoryName][projectIndex].name, imageNames[categoryName][projectIndex].images[0]);
         }
 
         document.getElementById("leftArrow").addEventListener("click", () => {
@@ -57,8 +106,8 @@ const routes = {
     "#sculptures": "pages/sculptures.html"
 };
 
-const getImageUrl = (folderName, imageName) => {
-    return `url('../img/${folderName}/${imageName}')`;
+const getImageUrl = (categoryName, projectName, imageName) => {
+    return `url('../img/${categoryName}/${projectName}/${imageName}')`;
 }
 
 const handleLocation = async () => {
@@ -84,23 +133,23 @@ const handleLocation = async () => {
     const html = await fetch(route).then((data) => data.text());
     document.getElementById("main-page").innerHTML = html;
 
-    const folderName = hash.slice(1);
+    const categoryName = hash.slice(1);
     if (hash === "#aerography" || hash === "#walls" || hash === "#sculptures") {
         const grid = document.getElementById("grid");
 
-        imageNames[folderName].forEach((imageName, idx) => {
+        imageNames[categoryName].forEach((project, idx) => {
             const card = document.createElement("div");
             card.classList.add("card");
 
             card.addEventListener("click", () => {
-                fullscreenCard.setAttribute("imageIndex", idx);
-                fullscreenCard.setAttribute("folderName", folderName);
+                fullscreenCard.setAttribute("categoryName", categoryName);
+                fullscreenCard.setAttribute("projectIndex", idx);
                 fullscreenCard.showModal();
                 fullscreenCard.style.backgroundImage = card.style.backgroundImage;
                 document.body.classList.add("modal-open");
             })
             grid.appendChild(card);
-            card.style.backgroundImage = getImageUrl(folderName, imageName);
+            card.style.backgroundImage = getImageUrl(categoryName, project.name, project.images[0]);
         });
     }
 };
