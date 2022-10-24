@@ -1,244 +1,229 @@
- body {
+body {
+    background-color: #111C22;
+    margin: 0;
 
-     /* background-color: rgb(212, 164, 231); */
-     /* background-image: url('../img/bg.jpg'); */
-     background-color: rgb(240, 240, 240);
+    color: #B8B3AD;
+    font-family: Georgia, times, serif;
+}
 
-     overflow-y: scroll;
+header {
+    background-color: #243D42;
 
- }
+    text-align: center;
+    color: #EDDCCC;
+}
 
- .container {
-     max-width: 1272px;
-     min-height: 95vh;
+h1 {
+    margin: 0;
+    padding: 8px;
 
-     margin: 0 auto;
-     box-shadow: 0 0 0.25rem 0 rgb(0 0 0 / 15%), inset 0 -0.0625rem 0 0 #d9d9d9;
-     background-color: white;
- }
+    letter-spacing: .2em;
+}
 
- p {
-     font-size: 20px;
- }
+nav {
+    background-color: #111C22;
 
- body.modal-open {
-     height: 100vh;
-     overflow-y: hidden;
- }
+    font-size: 20px;
+}
 
- .main-header {
-     width: 1272px;
-     position: fixed;
-     top: 0;
-     z-index: 1;
-     background-color: black;
+nav ul {
+    margin: 0;
+    padding: 8px 0 8px 30px;
+}
 
-     border-bottom: solid white;
- }
+nav li {
+    display: inline;
+    margin-right: 40px;
+}
 
- #main-page {
-     position: relative;
-     top: 50px;
-     padding: 16px;
- }
+a {
+    color: #B8B3AD;
+}
 
- .menu {
-     display: flex;
-     justify-content: center;
-     text-align: center;
- }
+nav li a {
+    text-decoration: none;
+}
 
- .menu>li a {
-     margin-right: 2rem;
+a:hover, nav li a.current {
+    color: #CDC57F;
+}
 
-     color: #fff;
-     letter-spacing: 2.1px;
-     text-decoration: none;
-     font-weight: bold;
-     font-size: 16px;
- }
+p {
+    font-size: 20px;
+}
 
- .menu>li a.selectedCategory {
-     text-decoration: underline;
- }
+body.modal-open {
+    height: 100vh;
+    overflow-y: hidden;
+}
 
- .menu>li a.logo {
-     font-size: 20px;
-     text-transform: uppercase;
- }
+#content {
+    width: 960px;
+    margin: 0 auto;
 
+    top: 50px;
+    padding: 16px;
+}
 
- .about {
-     max-width: 840px;
-     margin: 0 auto;
-     /* background-image: url('./img/about.jpg'); */
-     background-repeat: no-repeat;
-     background-size: cover;
- }
+#grid {
+    width: 100%;
+}
 
- #grid {
-     width: 1240px;
-     margin: 0 auto;
-     display: grid;
-     -ms-grid-columns: 1fr 1fr 1fr;
-     grid-template-columns: 1fr 1fr 1fr;
-     grid-column-gap: 20px;
-     grid-row-gap: 20px;
+#grid figure {
+    width: 400px;
+    height: 400px;
 
- }
+    float: left;
 
- .card {
-     width: 400px;
-     height: 400px;
-     background-size: cover;
- }
+    margin: 0;
+}
+
+#grid figure img {
+    width: 400px;
+    height: 400px;
+}
 
 
- #fullscreenCard {
-     width: auto;
-     height: 100%;
-     background: no-repeat;
-     background-color: rgba(43, 43, 43, 0.864);
+#fullscreenCard {
+    width: auto;
+    height: 100%;
+    background: no-repeat;
+    background-color: rgba(43, 43, 43, 0.864);
 
-     background-size: contain;
-     background-position: center;
- }
+    background-size: contain;
+    background-position: center;
+}
 
- #fullscreenCard .arrow {
-     position: absolute;
+#fullscreenCard .arrow {
+    position: absolute;
 
-     top: 50%;
+    top: 50%;
 
-     width: 50px;
-     height: 50px;
+    width: 50px;
+    height: 50px;
 
-     background-color: rgba(43, 43, 43, 0.864);
-     cursor: pointer;
- }
+    background-color: rgba(43, 43, 43, 0.864);
+    cursor: pointer;
+}
 
- #fullscreenCard .arrow::before {
-     content: "";
-     display: block;
+#fullscreenCard .arrow::before {
+    content: "";
+    display: block;
 
-     position: relative;
-     top: 15px;
-     left: 10px;
+    position: relative;
+    top: 15px;
+    left: 10px;
 
-     transform: rotate(-45deg);
+    transform: rotate(-45deg);
 
-     width: 25px;
-     height: 5px;
+    width: 25px;
+    height: 5px;
 
-     background-color: white;
-     border-radius: 5px;
- }
+    background-color: white;
+    border-radius: 5px;
+}
 
- #fullscreenCard .arrow::after {
-     content: "";
-     display: block;
+#fullscreenCard .arrow::after {
+    content: "";
+    display: block;
 
-     position: relative;
-     top: 25px;
-     left: 10px;
+    position: relative;
+    top: 25px;
+    left: 10px;
 
-     transform: rotate(45deg);
+    transform: rotate(45deg);
 
-     width: 25px;
-     height: 5px;
+    width: 25px;
+    height: 5px;
 
-     background-color: white;
-     border-radius: 5px;
- }
+    background-color: white;
+    border-radius: 5px;
+}
 
- #leftArrow {
-     left: 60px;
- }
+#leftArrow {
+    left: 60px;
+}
 
- #rightArrow {
-     right: 60px;
-     transform: rotate(180deg);
- }
+#rightArrow {
+    right: 60px;
+    transform: rotate(180deg);
+}
 
- #closeBtn {
-     position: absolute;
+#closeBtn {
+    position: absolute;
 
-     top: 2rem;
-     right: 3rem;
+    top: 2rem;
+    right: 3rem;
 
-     width: 50px;
-     height: 50px;
+    width: 50px;
+    height: 50px;
 
-     background-color: rgba(43, 43, 43, 0.864);
-     cursor: pointer;
- }
+    background-color: rgba(43, 43, 43, 0.864);
+    cursor: pointer;
+}
 
- #closeBtn::before {
-     content: "";
-     display: block;
+#closeBtn::before {
+    content: "";
+    display: block;
 
-     position: relative;
-     top: 22px;
-     transform: rotate(-45deg);
+    position: relative;
+    top: 22px;
+    transform: rotate(-45deg);
 
-     width: 50px;
-     height: 5px;
+    width: 50px;
+    height: 5px;
 
-     background-color: white;
-     border-radius: 5px;
- }
+    background-color: white;
+    border-radius: 5px;
+}
 
- #closeBtn::after {
-     content: "";
-     display: block;
+#closeBtn::after {
+    content: "";
+    display: block;
 
-     position: relative;
-     top: 17px;
-     transform: rotate(45deg);
+    position: relative;
+    top: 17px;
+    transform: rotate(45deg);
 
-     width: 50px;
-     height: 5px;
+    width: 50px;
+    height: 5px;
 
-     background-color: white;
-     border-radius: 5px;
- }
+    background-color: white;
+    border-radius: 5px;
+}
 
- #main-auto {
-     background-image: url('../img/машина сакура.jpeg');
- }
+#subImages {
+    display: flex;
+    justify-content: center;
+    width: 100%;
 
- #main-bus {
-     background-image: url('./img/автобус\ Рубин.jpeg');
- }
+    position: absolute;
+    bottom: 10px;
 
- footer {
-     position: fixed;
-     bottom: 0;
+    margin: 0 auto;
+}
 
-     max-width: 1272px;
+#subImages div {
+    display: inline-block;
 
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
+    width: 100px;
+    height: 100px;
 
-     height: 4rem;
-     width: 100%;
+    margin: 0 5px;
 
-     background-color: black;
-     color: white;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-color: rgba(43, 43, 43, 0.864);
+}
 
-     border-top: solid white;
- }
+footer {
+    clear: left;
 
- footer div {
-     margin: 0 1rem;
-     font-size: 18px;
- }
+    display: flex;
+    justify-content: space-between;
 
- footer div .contacts {
-     display: flex;
-     flex-direction: column;
- }
+    padding: 8px 32px 8px 32px;
 
- a {
-     color: white;
- }
+    background-color: #243D42;
+}
