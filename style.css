@@ -4,6 +4,11 @@
     --tretiary: #e9b1cd;
 }
 
+/* Прижимаем футер к низу. */
+html, body {
+    height: 100%;
+}
+
 body {
     background-color: var(--primary);
     margin: 0;
@@ -64,6 +69,9 @@ body.modal-open {
 
 #content {
     width: 1200px;
+    /* Прижимаем футер к низу. */
+    height: 100%;
+
     margin: 0 auto;
 
     top: 50px;
@@ -84,6 +92,7 @@ body.modal-open {
 
 #grid figure:hover {
     box-shadow: 4px 4px 4px black;
+    transform: scale(1.005);
 }
 
 #grid figure img {
