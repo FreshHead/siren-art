@@ -1,15 +1,14 @@
-/* Чтобы padding не увеличивал ширину элемента. */
-* {
-    box-sizing: border-box;
-}
-
-
 :root {
     --primary: #1f1319;
     --secondary: #3a3034;
     --tretiary: #e9b1cd;
 
     --footerHeight: 54px;
+}
+
+/* Чтобы padding не увеличивал ширину элемента. */
+* {
+    box-sizing: border-box;
 }
 
 /* Блок кода, который прижимает футер книзу страницы. Помогает, если контента не достаточно чтобы прижать его. */
@@ -39,10 +38,6 @@ footer {
 
 /* Конец блока. */
 
-/* Прижимаем футер к низу. */
-html, body {
-    height: 100%;
-}
 
 body {
     background-color: var(--primary);
@@ -113,18 +108,21 @@ body.modal-open {
     padding: 16px;
 }
 
-#grid figure {
-    float: left;
-
+#grid figure, #grid .folder::before, #grid .folder::after {
     width: 18em;
     height: 18em;
 
     margin: 1em;
-    padding: 1em 1em 0 1em;
 
     border: 1px solid var(--primary);
     box-shadow: 2px 2px 2px black;
     background-color: var(--secondary);
+}
+
+#grid figure {
+    float: left;
+
+    padding: 1em 1em 0 1em;
 }
 
 #grid figure:hover {
@@ -146,14 +144,8 @@ body.modal-open {
     position: absolute;
     top: 0;
     left: 0;
-    width: 18em;
-    height: 18em;
+
     transform: rotate(3deg);
-
-    margin: 1em;
-
-    box-shadow: 2px 2px 2px black;
-    background-color: var(--secondary);
 }
 
 #grid .folder::after {
@@ -163,22 +155,14 @@ body.modal-open {
     position: absolute;
     top: 0;
     left: 0;
-    /*👉 top: 1.5em;
-    left: 1.9em;👈*/
-    width: 18em;
-    height: 18em;
+
     transform: rotate(5deg);
-
-    margin: 1em;
-
-    box-shadow: 2px 2px 2px black;
-    background-color: var(--secondary);
 }
 
 #grid figure img {
     display: block;
     width: 100%;
-    height: 16em;
+    height: 15em;
 }
 
 
