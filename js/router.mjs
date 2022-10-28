@@ -1,7 +1,7 @@
 function Router() {
     document.addEventListener("DOMContentLoaded", () => {
         document.querySelectorAll("header a").forEach((navLink) => {
-            navLink.addEventListener("click", routeFunc);
+            navLink.addEventListener("click", routeFunc.bind(this));
         });
 
         window.onpopstate = handleLocation.bind(this);
