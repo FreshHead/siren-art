@@ -84,7 +84,7 @@ nav li a {
     text-decoration: none;
 }
 
-a:hover, nav li a.current {
+a:hover, nav li a.selected {
     color: #e9b1cd;
 }
 
@@ -170,6 +170,9 @@ figcaption {
     margin-top: 0.5em;
 }
 
+dialog {
+    background-color: var(--primary);
+}
 
 #fullscreenCard {
     width: auto;
