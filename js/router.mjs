@@ -39,9 +39,10 @@ function Router() {
             // Запрашиваем страницу и вставляем в div content.
             fetch(route).then((data) => {
                 data.text().then(html => {
-                    document.getElementById("content").innerHTML = html;
+                    const contentDiv = document.getElementById("content");
+                    contentDiv.innerHTML = html;
                     if (this.callbackFunc) {
-                        this.callbackFunc(hash, html);
+                        this.callbackFunc(hash, contentDiv);
                     }
                 });
             });

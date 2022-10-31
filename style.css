@@ -92,19 +92,12 @@ p {
     font-size: 20px;
 }
 
-body.modal-open {
-    height: 100vh;
-    overflow-y: hidden;
-}
-
 #content {
+    top: 50px;
+
     width: 1200px;
-    /* Прижимаем футер к низу. */
-    height: 100%;
 
     margin: 0 auto;
-
-    top: 50px;
     padding: 16px;
 }
 
@@ -171,7 +164,12 @@ figcaption {
 }
 
 dialog {
-    background-color: var(--primary);
+    background-color: transparent;
+    border: none;
+}
+
+dialog::backdrop {
+    background-color: rgba(43, 43, 43, 0.864);
 }
 
 .folder-dialog {
@@ -179,19 +177,17 @@ dialog {
     height: 100%;
 }
 
-#fullscreenCard {
+#imageViewer {
     width: auto;
     height: 100%;
-    background: no-repeat;
-    background-color: rgba(43, 43, 43, 0.864);
 
+    background: no-repeat;
     background-size: contain;
     background-position: center;
 }
 
-#fullscreenCard .arrow {
+#imageViewer .arrow {
     position: absolute;
-
     top: 50%;
 
     width: 50px;
@@ -201,7 +197,7 @@ dialog {
     cursor: pointer;
 }
 
-#fullscreenCard .arrow::before {
+#imageViewer .arrow::before {
     content: "";
     display: block;
 
@@ -218,7 +214,7 @@ dialog {
     border-radius: 5px;
 }
 
-#fullscreenCard .arrow::after {
+#imageViewer .arrow::after {
     content: "";
     display: block;
 
@@ -235,6 +231,13 @@ dialog {
     border-radius: 5px;
 }
 
+.image-window {
+    display: block;
+    height: 100%;
+
+    margin: 0 auto;
+}
+
 #leftArrow {
     left: 60px;
 }
@@ -244,7 +247,7 @@ dialog {
     transform: rotate(180deg);
 }
 
-.closeBtn {
+.close-btn {
     position: absolute;
 
     top: 2rem;
@@ -257,7 +260,7 @@ dialog {
     cursor: pointer;
 }
 
-.closeBtn::before {
+.close-btn::before {
     content: "";
     display: block;
 
@@ -272,7 +275,7 @@ dialog {
     border-radius: 5px;
 }
 
-.closeBtn::after {
+.close-btn::after {
     content: "";
     display: block;
 
