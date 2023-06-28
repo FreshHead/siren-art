@@ -43,12 +43,13 @@ body {
     background-color: var(--primary);
     margin: 0;
 
-    color: #cbcad7;
+    color: #cbcad7; /* TODO: Используй переменные везде. */
     font-family: Georgia, times, serif;
 }
 
 header {
-    background-color: var(--secondary);
+    display: flex;
+    align-items: center;
     text-align: center;
     color: #e9b1cd;
 }
@@ -61,10 +62,15 @@ h1 {
 }
 
 nav {
-    background-color: var(--primary);
+    background-color: var(--secondary);
 
     font-size: 20px;
 }
+
+/* header::before {
+    content: url('img/header.svg');
+    float: left;
+} */
 
 nav ul {
     margin: 0;
@@ -175,6 +181,8 @@ dialog::backdrop {
 .folder-dialog {
     width: 100%;
     height: 100%;
+
+    background-color: var(--primary);
 }
 
 #imageViewer {

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="187.73882"
+   height="63.694084"
+   version="1.1"
+   viewBox="0 0 49.672562 16.852393"
+   id="svg10"
+   sodipodi:docname="header.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs14" />
+  <sodipodi:namedview
+     id="namedview12"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="px"
+     showgrid="false"
+     viewbox-height="100"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="3.0574074"
+     inkscape:cx="76.69897"
+     inkscape:cy="-0.9812235"
+     inkscape:window-width="1920"
+     inkscape:window-height="1012"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g8"
+     units="px"
+     showguides="true"
+     inkscape:guide-bbox="true">
+    <sodipodi:guide
+       position="10.341437,13.670412"
+       orientation="0,-1"
+       id="guide1092" />
+    <sodipodi:guide
+       position="-6.0580014,12.936109"
+       orientation="0,-1"
+       id="guide1132" />
+    <sodipodi:guide
+       position="9.8653847,4.5422969"
+       orientation="0,-1"
+       id="guide1243" />
+    <sodipodi:guide
+       position="0.17307693,5.21297"
+       orientation="0,-1"
+       id="guide1245" />
+  </sodipodi:namedview>
+  <g
+     id="g8"
+     transform="matrix(0.28295095,0,0,0.28295095,-5.4032313,-3.1614073)">
+    <path
+       d="m 44.633,11.173 c -3.8986,-0.01069 -8.5808,6.6441 -7.8011,11.198 -2.1962,-6.4151 -7.0157,-11.218 -14.123,-7.7396 -3.5227,3.4388 4.0598,10.1 8.7111,11.563 -5.6836,-0.78589 -10.917,0.06159 -12.324,6.7071 0.21786,5.4186 11.63,3.4269 14.994,0.0615 -0.38949,1.5428 -0.71009,3.7679 -0.64595,5.9728 -2.3589,-1.5364 -5.3218,-1.8494 -8.8475,-0.1235 -3.5227,3.4388 4.0603,10.1 8.7116,11.563 -5.6836,-0.7859 -10.917,0.0616 -12.324,6.7071 0.21789,5.4186 11.63,3.4264 14.994,0.061 -1.0538,4.174 -1.6128,13.344 4.6297,13.589 6.5187,-1.9996 4.2541,-10.727 1.5033,-15.381 4.4608,4.0659 10.057,5.2349 13.685,-0.46457 0.01,-0.0305 0.0169,-0.0602 0.0258,-0.0904 h 4.6964 c -1.1931,2.0506 -1.546,4.275 0.3297,6.0374 4.1739,1.8508 7.1563,-2.1021 8.602,-6.0374 h 1.4376 c 1.2217,3.476 3.9386,5.642 8.2641,4.3563 1.6884,-1.0365 1.7677,-2.665 1.0061,-4.3563 h 114.49 v -32.424 h -148.69 c 2.6031,-2.5722 3.5135,-6.0683 1.1715,-10.018 -0.73946,-0.82012 -1.5973,-1.1773 -2.497,-1.1798 z"
+       fill="#e9b1cd"
+       id="path2"
+       style="fill:#3a3034;fill-opacity:1" />
+    <text
+       x="34.137238"
+       y="51.755459"
+       fill="#3a3034"
+       font-family="aakar"
+       font-size="40.3357px"
+       stroke-width="1.00842"
+       style="line-height:1.25;fill:#e9b1cd;fill-opacity:1"
+       xml:space="preserve"
+       id="text6"><tspan
+         x="34.137238"
+         y="51.755459"
+         fill="#3a3034"
+         font-family="aakar"
+         stroke-width="1.00842"
+         id="tspan4"
+         style="fill:#e9b1cd;fill-opacity:1">Siren-art</tspan></text>
+  </g>
+</svg>
