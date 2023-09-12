@@ -20,9 +20,9 @@ function Router() {
             const hash = window.location.hash;
 
             const routes = {
-                404: "pages/main.html",
-                "/": "pages/main.html",
-                "#about": "pages/main.html",
+                404: "pages/about.html",
+                "/": "pages/about.html",
+                "#about": "pages/about.html",
                 "#aerography": "pages/aerography.html",
                 "#walls": "pages/walls.html",
                 "#sculptures": "pages/sculptures.html"

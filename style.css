@@ -49,6 +49,7 @@ body {
 
 header {
     display: flex;
+    justify-content: center;
     align-items: center;
     text-align: center;
     color: #e9b1cd;
@@ -70,11 +71,6 @@ nav {
     margin-top: -6px; /* Некрасивый способ выровнить хедер относительно логотипа. */
     font-size: 20px;
 }
-
-/* header::before {
-    content: url('img/header.svg');
-    float: left;
-} */
 
 nav ul {
     margin: 0;
