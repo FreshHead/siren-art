@@ -22,6 +22,7 @@ function Router() {
             const routes = {
                 404: "pages/main.html",
                 "/": "pages/main.html",
+                "#about": "pages/main.html",
                 "#aerography": "pages/aerography.html",
                 "#walls": "pages/walls.html",
                 "#sculptures": "pages/sculptures.html"
@@ -54,7 +55,7 @@ function Router() {
                 const hashWithoutHashtag = categoryMatch[1];
                 return document.getElementById(hashWithoutHashtag + "Link");
             } else {
-                return document.getElementById("mainPageLink");
+                return document.getElementById("aboutLink");
             }
         }
     });
